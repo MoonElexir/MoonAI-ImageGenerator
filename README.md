@@ -6,10 +6,6 @@ Text-to-Image Generation: Utilize a powerful AI model to transform text descript
 
 User Authentication: Secure user registration and login functionality.
 
-Image Gallery: View and manage all your generated images in a personal gallery.
-
-Prompt History: Easily access and re-use your previous text prompts.
-
 Responsive Design: A beautiful and user-friendly interface that works on all devices.
 
 🛠️ Tech Stack
