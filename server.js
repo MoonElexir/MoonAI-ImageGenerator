@@ -14,9 +14,6 @@ await connectDb();
 
 app.use("/api/user", userRouter);
 app.use("/api/image", imageRouter);
-// app.get("/", (req, res) => {
-//   return res.send("This is home route");
-// });
 
 app.listen(PORT, () => {
   console.log(`Server is listining on port ${PORT}`);
