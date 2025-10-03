@@ -20,5 +20,5 @@ app.use("/api/user", userRouter);
 app.use("/api/image", imageRouter);
 
 app.listen(PORT, () => {
-  console.log(`Server is listining on port ${PORT}`);
+  console.log(`Server is listining on port http://localhost:${PORT}`);
 });
