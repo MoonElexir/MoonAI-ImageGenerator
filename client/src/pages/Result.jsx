@@ -1,16 +1,29 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { assets } from "../assets/assets";
+import { AppContext } from "../context/AppContext";
 
 const Result = () => {
-  const [image, setImage] = useState(assets.sample_img_21);
+  const [image, setImage] = useState(assets.sample_img_16);
   const [isImageLoaded, setImageLoaded] = useState(false);
   const [loading, setLoading] = useState(false);
   const [input, setInput] = useState('');
+  const {generateImage} = useContext(AppContext);
 
   const onSubmitHandler = async (e)=>{
-    //To be done later
+    
     e.preventDefault();
-    setImageLoaded(true);
+    setImageLoaded(false);
+    setLoading(true);
+   if(input){
+    const newimage = await generateImage(input);
+    if(newimage){
+      // add timestamp to force refresh
+      setImage(newimage);
+      setImageLoaded(true);
+    }
+   }
+
+   setLoading(false);
   }
 
   return (
@@ -20,7 +33,12 @@ const Result = () => {
     >
       <div>
         <div className="relative">
-          <img src={image} alt="" className="max-w-sm rounded h-100 " />
+          <img
+          
+            src={image}
+            alt=""
+            className="max-w-sm rounded h-100 "
+          />
           <span
             className={`absolute bottom-0 left-0 h-1 bg-blue-500 ${
               loading ? "w-full transition-all duration-[10s]" : "w-0"
