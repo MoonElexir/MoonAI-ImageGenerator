@@ -4,11 +4,15 @@ import "dotenv/config";
 import imageRouter from "./routes/imageRoutes.js";
 import { connectDb } from "./config/mongodb.js";
 import userRouter from "./routes/userRoutes.js";
+import path, { dirname } from 'node:path'
+import { fileURLToPath } from "node:url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const PORT = process.env.PORT || 8000;
 const app = express();
 app.use(express.json());
-app.use(express.static("./static"));
+app.use(express.static(path.join(__dirname, "static")));
 app.use(cors());
 await connectDb();
 
