@@ -13,7 +13,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="flex items-center justify-between py-4">
+    <div className="flex items-center justify-between py-4 relative">
       <Link to="/">
         <img
           src={assets.logo}
@@ -22,7 +22,7 @@ const Navbar = () => {
         />
       </Link>
 
-      <img className=' rounded-2xl w-70 h-15 ml-21' src={assets.my_logo} alt="" />
+      <img className=' rounded-2xl h-15 absolute left-1/2 -translate-x-1/2 ' src={assets.my_logo} alt="" />
 
       <div>
         {user ? (
